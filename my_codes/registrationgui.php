@@ -50,7 +50,7 @@ if(array_key_exists("submit",$_POST)){
             <fieldset class="form-group row">
                 <label class="col-sm-2"><h4><b>Team Name</b></h4></label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="teamName" name="teamName">
+                    <input placeholder="team name" style="font-family:monospace; color:white;" type="text" class="form-control" id="teamName" name="teamName" >
                 </div>
 
             </fieldset>
@@ -72,7 +72,7 @@ if(array_key_exists("submit",$_POST)){
                 <fieldset class="form-group  row">
                     <label class="col-sm-4">USN</label>
                     <div class="col-sm-10">
-                        <input style="font-family:monospace;color:white;" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="leaderUsn">
+                        <input style="font-family:monospace;color:white; text-transform: uppercase;" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="leaderUsn">
                     </div>
 
                 </fieldset>
@@ -86,7 +86,7 @@ if(array_key_exists("submit",$_POST)){
                 <fieldset class="form-group  row">
                     <label class="col-sm-4">Phone</label>
                     <div class="col-sm-10">
-                        <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel"  class="form-control " id="phone" name="leaderPhone"  maxlength="10">
+                        <input style="font-family:monospace;color: white;" pattern="[0-9]" oninvalid="setCustomValidity('Pease enter a valid Phone Number...')" placeholder="phone number" type="tel"  class="form-control " id="phone" name="leaderPhone"  maxlength="10">
                     </div>
 
                 </fieldset>
@@ -108,7 +108,7 @@ if(array_key_exists("submit",$_POST)){
                 <fieldset class="form-group row">
                     <label class="col-sm-4">USN</label>
                     <div class="col-sm-10">
-                        <input style="font-family:monospace;color: white;" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="member1Usn">
+                        <input style="font-family:monospace;color: white; text-transform: uppercase;" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="member1Usn">
                     </div>
 
                 </fieldset>
@@ -123,7 +123,7 @@ if(array_key_exists("submit",$_POST)){
                     <label class="col-sm-4">Phone</label>
                     <div class="col-sm-10">
 
-                        <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
+                        <input style="font-family:monospace;color: white;" pattern="[0-9]" oninvalid="setCustomValidity('Pease enter a valid Phone Number...')" placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
                     </div>
 
                 </fieldset>
@@ -134,7 +134,6 @@ if(array_key_exists("submit",$_POST)){
         </div>
     </fieldset>
 </form>
-
 
 
 <!-- Optional JavaScript -->
