@@ -13,47 +13,51 @@
 </head>
 <body>
 
+<div class=""><img src="cover.jpg" class="img-fluid embed-responsive " ></div>
+<form style="width: 100%;">
+    <fieldset action="registrationgui.php" method="post" class="form-group ">
+        <div class="jumbotron bg-dark text-light " style="font-family:sans">
 
-<form>
-    <fieldset action="registrationgui.php" method="post" class="form-group">
-        <div class="jumbotron bg-dark text-light" style="font-family:sans">
-            <fieldset class="form-group bg-transparent text-light" style="font-family:cursive; text-align-last: center;">
-                <label class="col-sm-5 " ><h2><strong>Reverse Coding</strong></h2></label>
+            <fieldset class="form-group row">
+                <label class="col-sm-2"><h3>Team Name</h3></label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="teamName" name="teamName">
+                </div>
 
             </fieldset>
             <fieldset class="form-group row">
-                <label class="col-sm-5" ><h3><strong>Team Members</strong></h3></label>
+                <label class="col-sm-5" ><h4><strong>Team Members</strong></h4></label>
             </fieldset>
             <fieldset class="form-group row">
-                <label class="col-sm-2">Team Leader</label>
+                <label class="col-sm-3">Team Leader</label>
             </fieldset>
             <fieldset class="form-group row">
 
                 <fieldset class="form-group">
-                    <label class="col-sm-2">Name</label>
+                    <label class="col-sm-3">Name</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="leaderName" name="leaderName">
                     </div>
 
                 </fieldset>
                 <fieldset class="form-group">
-                    <label class="col-sm-2">USN</label>
+                    <label class="col-sm-3">USN</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="text" name="leaderUsn">
                     </div>
 
                 </fieldset>
                 <fieldset class="form-group">
-                    <label class="col-sm-2">E-mail</label>
+                    <label class="col-sm-3">E-mail</label>
                     <div class="col-sm-10">
                         <input type="email" class="form-control" id="email" name="leaderEmail">
                     </div>
 
                 </fieldset>
                 <fieldset class="form-group">
-                    <label class="col-sm-2">Phone</label>
+                    <label class="col-sm-3">Phone</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control " id="phonr" name="leaderPhone">
+                        <input type="number"  class="form-control " id="phone" name="leaderPhone"  max="9999999999">
                     </div>
 
                 </fieldset>
@@ -61,35 +65,35 @@
             </fieldset>
 
             <fieldset class="form-group row">
-                <label class="col-sm-2">Team Member 1</label>
+                <label class="col-sm-3">Team Member 1</label>
             </fieldset>
             <fieldset class="form-group row" >
 
                 <fieldset class="form-group">
-                    <label class="col-sm-2">Name</label>
+                    <label class="col-sm-3">Name</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="leaderName" name="member1Name">
                     </div>
 
                 </fieldset>
                 <fieldset class="form-group">
-                    <label class="col-sm-2">USN</label>
+                    <label class="col-sm-3">USN</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="text" name="member1Usn">
                     </div>
 
                 </fieldset>
                 <fieldset class="form-group">
-                    <label class="col-sm-2">E-mail</label>
+                    <label class="col-sm-3">E-mail</label>
                     <div class="col-sm-10">
                         <input type="email" class="form-control" id="email" name="member1Email">
                     </div>
 
                 </fieldset>
                 <fieldset class="form-group">
-                    <label class="col-sm-2">Phone</label>
+                    <label class="col-sm-3">Phone</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control " id="phonr" name="member1Phone">
+                        <input type="number" class="form-control " id="phone" name="member1Phone"  max="9999999999" >
                     </div>
 
                 </fieldset>
