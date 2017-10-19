@@ -7,9 +7,9 @@ if(array_key_exists("submit",$_POST)){
     $query="Select * from `team` where teamName='".$_POST['teamName']."'";
     $result=mysqli_query($link,$query);
     if(mysqli_fetch_array($result)>0)
-        echo "<p>Team name already exists!</p><br>";
+        echo "<p>Team name already exists...!</p><br>";
     elseif(!$_POST['leaderName']||!$_POST['leaderUsn']||!$_POST['leaderEmail']||!$_POST['leaderPhone']||!$_POST['member1Name']||!$_POST['member1Usn']||!$_POST['member1Email']||!$_POST['member1Phone'])
-         echo "<p>Some fields are still empty!</p><br>";
+         echo "<p>Some fields are still empty...!</p><br>";
     else{
     $queryTeam="Insert into `team` (`teamName`) values('".$_POST['teamName']."')";
     mysqli_query($link,$queryTeam);
@@ -123,7 +123,7 @@ if(array_key_exists("submit",$_POST)){
                     <label class="col-sm-4">Phone</label>
                     <div class="col-sm-10">
 
-                        <input style="font-family:monospace;color: white;" pattern="[0-9]" oninvalid="setCustomValidity('Pease enter a valid Phone Number...')" placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
+                        <input style="font-family:monospace;color: white;" pattern="[0-9]" oninvalid="setCustomValidity('Pease enter a valid Phone Number..')" placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
                     </div>
 
                 </fieldset>
