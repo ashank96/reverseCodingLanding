@@ -41,108 +41,98 @@ if(array_key_exists("submit",$_POST)){
 <body >
 
 
-<<<<<<< HEAD
-<form class="form-group" method="post" >
-    <div class="container">
-        <img src="cover.jpg" class="img-fluid embed-responsive bg-dark" style="padding: 5px;" >
-        <fieldset>
-            <div  class="jumbotron bg-dark text-light " style="font-family:serif">
-=======
-<form class="form-group" style="margin:0% 0.5% 0% 0.5%;">
-        <img src="cover.jpg" class="img-fluid embed-responsive bg-dark" style="padding: 5px;" >
-        <fieldset action="registrationgui.php" method="post" >
-            <div  class="jumbotron bg-dark text-light" style="font-family:serif">
->>>>>>> 9cdaa78854f6096f3d37e572dd5e2956f3885961
+<form class="form-group" >
+    <img src="cover.jpg" class="img-fluid embed-responsive bg-dark" >
+    <fieldset action="registrationgui.php" method="post" >
+        <div  class="jumbotron bg-dark text-white" style="font-family:serif">
 
+
+            <fieldset class="form-group row">
+                <label class="col-sm-2"><h4><b>Team Name</b></h4></label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="teamName" name="teamName">
+                </div>
+
+            </fieldset>
+            <fieldset class="form-group row">
+                <label class="col-sm-5" ><h5>Team Members</h5></label>
+            </fieldset>
+            <fieldset class="form-group row">
+                <label class="col-sm-4"><h6>Team Leader</h6></label>
+            </fieldset>
+            <fieldset class="form-group row" style="margin-left: 3%">
 
                 <fieldset class="form-group row">
-                    <label class="col-sm-2"><h4><b>Team Name</b></h4></label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="teamName" name="teamName">
+                    <label class="col-sm-4">Name</label>
+                    <div class="col-sm-10">
+                        <input style="font-family:monospace; color:white;" placeholder="full name" type="text" class="form-control" id="leaderName" name="leaderName">
+                    </div>
+
+                </fieldset>
+                <fieldset class="form-group  row">
+                    <label class="col-sm-4">USN</label>
+                    <div class="col-sm-10">
+                        <input style="font-family:monospace;color:white;" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="leaderUsn">
+                    </div>
+
+                </fieldset>
+                <fieldset class="form-group  row">
+                    <label class="col-sm-4">E-mail</label>
+                    <div class="col-sm-10">
+                        <input style="font-family:monospace;color: white;" placeholder="example@email.com" type="email" class="form-control" id="email" name="leaderEmail">
+                    </div>
+
+                </fieldset>
+                <fieldset class="form-group  row">
+                    <label class="col-sm-4">Phone</label>
+                    <div class="col-sm-10">
+                        <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel"  class="form-control " id="phone" name="leaderPhone"  maxlength="10">
+                    </div>
+
+                </fieldset>
+
+            </fieldset>
+
+            <fieldset class="form-group row">
+                <label class="col-sm-4"><h6>Team Member 1</h6></label>
+            </fieldset>
+            <fieldset class="form-group row" style="margin-left: 3%">
+
+                <fieldset class="form-group row">
+                    <label class="col-sm-4">Name</label>
+                    <div class="col-sm-10">
+                        <input style="font-family:monospace;color: white;" placeholder="full name" type="text" class="form-control" id="leaderName" name="member1Name">
                     </div>
 
                 </fieldset>
                 <fieldset class="form-group row">
-                    <label class="col-sm-5" ><h5>Team Members</h5></label>
+                    <label class="col-sm-4">USN</label>
+                    <div class="col-sm-10">
+                        <input style="font-family:monospace;color: white;" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="member1Usn">
+                    </div>
+
                 </fieldset>
                 <fieldset class="form-group row">
-                    <label class="col-sm-4"><h6>Team Leader</h6></label>
-                </fieldset>
-                <fieldset class="form-group row" style="margin-left: 3%">
-
-                    <fieldset class="form-group row">
-                        <label class="col-sm-4">Name</label>
-                        <div class="col-sm-10">
-                            <input style="font-family:monospace" placeholder="full name" type="text" class="form-control" id="leaderName" name="leaderName">
-                        </div>
-
-                    </fieldset>
-                    <fieldset class="form-group  row">
-                        <label class="col-sm-4">USN</label>
-                        <div class="col-sm-10">
-                            <input style="font-family:monospace" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="leaderUsn">
-                        </div>
-
-                    </fieldset>
-                    <fieldset class="form-group  row">
-                        <label class="col-sm-4">E-mail</label>
-                        <div class="col-sm-10">
-                            <input style="font-family:monospace" placeholder="example@email.com" type="email" class="form-control" id="email" name="leaderEmail">
-                        </div>
-
-                    </fieldset>
-                    <fieldset class="form-group  row">
-                        <label class="col-sm-4">Phone</label>
-                        <div class="col-sm-10">
-                            <input style="font-family:monospace" placeholder="phone number" type="tel"  class="form-control " id="phone" name="leaderPhone"  maxlength="10">
-                        </div>
-
-                    </fieldset>
+                    <label class="col-sm-4">E-mail</label>
+                    <div class="col-sm-10">
+                        <input style="font-family:monospace;color: white;" placeholder="example@email.com" type="email" class="form-control" id="email" name="member1Email">
+                    </div>
 
                 </fieldset>
-
                 <fieldset class="form-group row">
-                    <label class="col-sm-4"><h6>Team Member 1</h6></label>
-                </fieldset>
-                <fieldset class="form-group row" style="margin-left: 3%">
+                    <label class="col-sm-4">Phone</label>
+                    <div class="col-sm-10">
 
-                    <fieldset class="form-group row">
-                        <label class="col-sm-4">Name</label>
-                        <div class="col-sm-10">
-                            <input style="font-family:monospace" placeholder="full name" type="text" class="form-control" id="leaderName" name="member1Name">
-                        </div>
-
-                    </fieldset>
-                    <fieldset class="form-group row">
-                        <label class="col-sm-4">USN</label>
-                        <div class="col-sm-10">
-                            <input style="font-family:monospace" placeholder="1SIYYCSXYZ" type="text" class="form-control" id="text" name="member1Usn">
-                        </div>
-
-                    </fieldset>
-                    <fieldset class="form-group row">
-                        <label class="col-sm-4">E-mail</label>
-                        <div class="col-sm-10">
-                            <input style="font-family:monospace" placeholder="example@email.com" type="email" class="form-control" id="email" name="member1Email">
-                        </div>
-
-                    </fieldset>
-                    <fieldset class="form-group row">
-                        <label class="col-sm-4">Phone</label>
-                        <div class="col-sm-10">
-
-                            <input style="font-family:monospace" placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
-                        </div>
-
-                    </fieldset>
+                        <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
+                    </div>
 
                 </fieldset>
-                <fieldset class="form-group">
-                    <input type="submit" value="Register" name="submit" class="btn btn-outline-success font-weight-bold">
-                </fieldset>
 
-            </div>
-        </fieldset>
+            </fieldset>
+            <input type="submit" value="Register" class="btn btn-outline-success font-weight-bold">
+
+        </div>
+    </fieldset>
 </form>
 
 
