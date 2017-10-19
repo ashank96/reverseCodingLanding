@@ -1,5 +1,30 @@
 <?php
+$user='root';
+$pass='';
+$db= 'reverse_coding';
+if(array_key_exists("submit",$_POST)){
+    $link=mysqli_connect('localhost',$user,$pass,$db) or die('Error');
+    $query="Select * from `team` where teamName='".$_POST['teamName']."'";
+    $result=mysqli_query($link,$query);
+    if(mysqli_fetch_array($result)>0)
+        echo "<p>Team name already exists!</p><br>";
+    elseif(!$_POST['leaderName']||!$_POST['leaderUsn']||!$_POST['leaderEmail']||!$_POST['leaderPhone']||!$_POST['member1Name']||!$_POST['member1Usn']||!$_POST['member1Email']||!$_POST['member1Phone'])
+         echo "<p>Some fields are still empty!</p><br>";
+    else{
+    $queryTeam="Insert into `team` (`teamName`) values('".$_POST['teamName']."')";
+    mysqli_query($link,$queryTeam);
+    $query="Select * from `team` where teamName='".$_POST['teamName']."'";
 
+    $result=mysqli_query($link,$query);
+    $row=mysqli_fetch_array($result);
+    $queryParticipant1="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['leaderName']."','".$_POST['leaderUsn']."','".$_POST['leaderEmail']."','".$_POST['leaderPhone']."',".$row['teamID'].")";
+
+    mysqli_query($link,$queryParticipant1);
+    $queryParticipant2="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['member1Name']."','".$_POST['member1Usn']."','".$_POST['member1Email']."','".$_POST['member1Phone']."',".$row['teamID'].")";
+    mysqli_query($link,$queryParticipant2);
+  
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,19 +32,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/mdb.min.css" integrity="sha384-k5bjxeyx3S5yJJNRD1eKUMdgxuvfisWKku5dwHQq9Q/Lz6H8CyL89KF52ICpX4cL" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
 </head>
-<body>
+<body >
 
 
-<form class="form-group">
+<form class="form-group" method="post" >
     <div class="container">
         <img src="cover.jpg" class="img-fluid embed-responsive bg-dark" style="padding: 5px;" >
-        <fieldset action="registrationgui.php" method="post" >
+        <fieldset>
             <div  class="jumbotron bg-dark text-light " style="font-family:serif">
 
 
@@ -104,7 +129,9 @@
                     </fieldset>
 
                 </fieldset>
-                <input type="submit" value="Register" class="btn btn-outline-success font-weight-bold">
+                <fieldset class="form-group">
+                    <input type="submit" value="Register" name="submit" class="btn btn-outline-success font-weight-bold">
+                </fieldset>
 
             </div>
         </fieldset>
