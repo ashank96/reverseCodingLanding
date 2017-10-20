@@ -3,10 +3,10 @@ $user='root';
 $pass='';
 $db= 'reverse_coding';
 if(array_key_exists("submit",$_POST)){
-    echo "in submit";
+
     $link=mysqli_connect('localhost',$user,$pass,$db) or die('Error');
     $query="Select * from `team` where teamName='".$_POST['teamName']."'";
-    echo $query;
+
     $result=mysqli_query($link,$query);
     if(mysqli_fetch_array($result)>0)
         echo "<p>Team name already exists...!</p><br>";
@@ -17,16 +17,15 @@ if(array_key_exists("submit",$_POST)){
     echo $queryTeam;
     mysqli_query($link,$queryTeam);
     $query="Select * from `team` where teamName='".$_POST['teamName']."'";
-    echo $query;
+
 
     $result=mysqli_query($link,$query);
     $row=mysqli_fetch_array($result);
     $queryParticipant1="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['leaderName']."','".$_POST['leaderUsn']."','".$_POST['leaderEmail']."','".$_POST['leaderPhone']."',".$row['teamID'].")";
-    echo $queryParticipant1;
+
 
     mysqli_query($link,$queryParticipant1);
     $queryParticipant2="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['member1Name']."','".$_POST['member1Usn']."','".$_POST['member1Email']."','".$_POST['member1Phone']."',".$row['teamID'].")";
-      echo $queryParticipant1;
     mysqli_query($link,$queryParticipant2);
   
     }
