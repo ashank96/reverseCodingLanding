@@ -3,8 +3,10 @@ $user='root';
 $pass='';
 $db= 'reverse_coding';
 if(array_key_exists("submit",$_POST)){
+    echo "in submit";
     $link=mysqli_connect('localhost',$user,$pass,$db) or die('Error');
     $query="Select * from `team` where teamName='".$_POST['teamName']."'";
+    echo $query;
     $result=mysqli_query($link,$query);
     if(mysqli_fetch_array($result)>0)
         echo "<p>Team name already exists...!</p><br>";
@@ -12,15 +14,19 @@ if(array_key_exists("submit",$_POST)){
          echo "<p>Some fields are still empty...!</p><br>";
     else{
     $queryTeam="Insert into `team` (`teamName`) values('".$_POST['teamName']."')";
+    echo $queryTeam;
     mysqli_query($link,$queryTeam);
     $query="Select * from `team` where teamName='".$_POST['teamName']."'";
+    echo $query;
 
     $result=mysqli_query($link,$query);
     $row=mysqli_fetch_array($result);
     $queryParticipant1="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['leaderName']."','".$_POST['leaderUsn']."','".$_POST['leaderEmail']."','".$_POST['leaderPhone']."',".$row['teamID'].")";
+    echo $queryParticipant1;
 
     mysqli_query($link,$queryParticipant1);
     $queryParticipant2="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['member1Name']."','".$_POST['member1Usn']."','".$_POST['member1Email']."','".$_POST['member1Phone']."',".$row['teamID'].")";
+      echo $queryParticipant1;
     mysqli_query($link,$queryParticipant2);
   
     }
@@ -41,9 +47,9 @@ if(array_key_exists("submit",$_POST)){
 <body >
 
 
-<form class="form-group" >
+<form class="form-group" method="post" >
     <img src="cover.jpg" class="img-fluid embed-responsive bg-dark" >
-    <fieldset action="registrationgui.php" method="post" >
+    <fieldset>
         <div  class="jumbotron bg-dark text-white" style="font-family:serif">
 
 
@@ -86,7 +92,7 @@ if(array_key_exists("submit",$_POST)){
                 <fieldset class="form-group  row">
                     <label class="col-sm-4">Phone</label>
                     <div class="col-sm-10">
-                        <input style="font-family:monospace;color: white;" pattern="[0-9]" oninvalid="setCustomValidity('Pease enter a valid Phone Number...')" placeholder="phone number" type="tel"  class="form-control " id="phone" name="leaderPhone"  maxlength="10">
+                        <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel"  class="form-control " id="phone" name="leaderPhone"  maxlength="10">
                     </div>
 
                 </fieldset>
@@ -123,13 +129,16 @@ if(array_key_exists("submit",$_POST)){
                     <label class="col-sm-4">Phone</label>
                     <div class="col-sm-10">
 
-                        <input style="font-family:monospace;color: white;" pattern="[0-9]" oninvalid="setCustomValidity('Pease enter a valid Phone Number..')" placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
+                        <input style="font-family:monospace;color: white;"  placeholder="phone number" type="tel" class="form-control"   id="phone" name="member1Phone"  maxlength="10" >
                     </div>
 
                 </fieldset>
 
             </fieldset>
-            <input type="submit" value="Register" class="btn btn-outline-success font-weight-bold">
+            <fieldset class="form-group">
+            <input type="submit" value="Register" name="submit" class="btn btn-outline-success font-weight-bold">
+            </fieldset>
+            </fieldset>
 
         </div>
     </fieldset>
