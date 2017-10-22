@@ -1,35 +1,66 @@
 <?php
+include 'testInput.php';
 $user='root';
 $pass='';
 $db= 'reverse_coding';
+$error="";
+$errorFound=false;
+$teamErr=$lNameErr=$lUsnErr=$lEmailErr=$lPhoneErr=$mNameErr=$mUsnErr=$mEmailErr=$mPhoneErr="";
 if(array_key_exists("submit",$_POST)){
 
     $link=mysqli_connect('localhost',$user,$pass,$db) or die('Error');
     $query="Select * from `team` where teamName='".$_POST['teamName']."'";
 
     $result=mysqli_query($link,$query);
-    if(mysqli_fetch_array($result)>0)
-        echo "<p>Team name already exists...!</p><br>";
-    elseif(!$_POST['leaderName']||!$_POST['leaderUsn']||!$_POST['leaderEmail']||!$_POST['leaderPhone']||!$_POST['member1Name']||!$_POST['member1Usn']||!$_POST['member1Email']||!$_POST['member1Phone'])
-        echo "<p>Some fields are still empty...!</p><br>";
-    else{
+    $result2=mysqli_query($link,"Select * from `participants`");
+    if($_POST['leaderUsn']==$_POST['member1Usn']){
+        $mUsnErr.="*Leader USN and Member USN cannot be same";
+        $lUsnErr.="*Leader USN and Member USN cannot be same";
+        $errorFound=true;
+    }
+    if(mysqli_num_rows($result2)>0){
+        $i=0;
+        while($row=mysqli_fetch_array($result2)){
+            if($row['usn']==$_POST['leaderUsn']){
+                $lUsnErr.="*USN already Registered";
+                $i=-1;
+            }
+            if($row['usn']==$_POST['member1Usn']){
+                $mUsnErr.="*USN already Registered";
+                $i=-1;
+            }
+            if($i==-1)
+                $errorFound=true;
+          }
+        
+    }
+    if(mysqli_num_rows($result)>0){
+        $teamErr="*Team name already exists";   
+        $errorFound=true;
+    }
+    if(test_input($teamErr,$lNameErr,$lUsnErr,$lEmailErr,$lPhoneErr,$mNameErr,$mUsnErr,$mEmailErr,$mPhoneErr)==-1){
+        $error="*Some fields are still empty or have invalid entries";
+        $errorFound=true;
+    }
+    if(!$errorFound){
         $queryTeam="Insert into `team` (`teamName`) values('".$_POST['teamName']."')";
-        echo $queryTeam;
         mysqli_query($link,$queryTeam);
         $query="Select * from `team` where teamName='".$_POST['teamName']."'";
 
 
         $result=mysqli_query($link,$query);
         $row=mysqli_fetch_array($result);
-        $queryParticipant1="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['leaderName']."','".$_POST['leaderUsn']."','".$_POST['leaderEmail']."','".$_POST['leaderPhone']."',".$form-row1['teamID'].")";
+        $queryParticipant1="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['leaderName']."','".$_POST['leaderUsn']."','".$_POST['leaderEmail']."','".$_POST['leaderPhone']."',".$row['teamID'].")";
 
 
         mysqli_query($link,$queryParticipant1);
-        $queryParticipant2="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['member1Name']."','".$_POST['member1Usn']."','".$_POST['member1Email']."','".$_POST['member1Phone']."',".$form-row1['teamID'].")";
+        $queryParticipant2="Insert into `participants` (`name`,`usn`,`email`,`phone`,`teamId`) values('".$_POST['member1Name']."','".$_POST['member1Usn']."','".$_POST['member1Email']."','".$_POST['member1Phone']."',".$row['teamID'].")";
         mysqli_query($link,$queryParticipant2);
+        
 
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -67,16 +98,15 @@ if(array_key_exists("submit",$_POST)){
             <div  class="jumbotron1 bg-dark1 text-white" style="font-family:serif;margin-top: -3.5%">
                 <div class="header-title">
                     <h1 class="h2-responsive font-weight-bold " style="text-align: center;color: white;">Reverse Coding</a></h1>
+                    <span class="error"><?php echo $error ?></span>
                 </div>
                 <div style="margin-left: 15%;margin-right:15%;">
-                    <fieldset1 class="form-group1 form-row1">
-                        <input type="text" id="name" class="form-control" required>
-                        <label class="form-control-placeholder" for="name">name</label>
-                    </fieldset1>
+                
                     <fieldset1 class="form-group1 form-row1">
                         <label style="color: white" class="col-sm1-4"><h4><b>Team Name</b></h4></label>
                         <div class="col-sm1-5">
                             <input placeholder="team name" style="font-family:monospace; font-size: 120%; color:white;" type="text" class="form-control1 bg-dark1" id="teamName" name="teamName" >
+                            <span class="error"><?php echo $teamErr ?></span>
                         </div>
 
                     </fieldset1>
@@ -91,28 +121,28 @@ if(array_key_exists("submit",$_POST)){
                         <fieldset1 class="form-group1 ">
                             <label style="color: white" class="col-sm1-2">Name</label>
                             <div class="col-sm1-5">
-                                <input style="font-family:monospace; color:white;" placeholder="full name" type="text" class="form-control1 bg-dark1" id="leaderName" name="leaderName">
+                                <input style="font-family:monospace; color:white;" placeholder="full name" type="text" class="form-control1 bg-dark1" id="leaderName" name="leaderName"><span class="error"><?php echo $lNameErr ?></span>
                             </div>
 
                         </fieldset1>
                         <fieldset1 class="form-group1 ">
                             <label style="color: white" class="col-sm1-2">USN</label>
                             <div class="col-sm1-5">
-                                <input style="font-family:monospace;color:white; text-transform: uppercase;" placeholder="1SIYYCSXYZ" type="text" class="form-control1 bg-dark1" id="text" name="leaderUsn">
+                                <input style="font-family:monospace;color:white; text-transform: uppercase;" placeholder="1SIYYCSXYZ" type="text" class="form-control1 bg-dark1" id="text" name="leaderUsn"><span class="error"><?php echo $lUsnErr ?></span>
                             </div>
 
                         </fieldset1>
                         <fieldset1 class="form-group1 ">
                             <label style="color: white" class="col-sm1-2">E-mail</label>
                             <div class="col-sm1-5">
-                                <input style="font-family:monospace;color: white;" placeholder="example@email.com" type="email" class="form-control1 bg-dark1" id="email" name="leaderEmail">
+                                <input style="font-family:monospace;color: white;" placeholder="example@email.com" type="email" class="form-control1 bg-dark1" id="email" name="leaderEmail"><span class="error"><?php echo $lEmailErr ?></span>
                             </div>
 
                         </fieldset1>
                         <fieldset1 class="form-group1 ">
                             <label style="color: white" class="col-sm1-2">Phone</label>
                             <div class="col-sm1-5">
-                                <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel"  class="form-control1  bg-dark1" id="phone" name="leaderPhone"  maxlength="10">
+                                <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel"  class="form-control1  bg-dark1" id="phone" name="leaderPhone"  maxlength="10"><span class="error"><?php echo $lPhoneErr ?></span>
                             </div>
 
                         </fieldset1>
@@ -128,6 +158,7 @@ if(array_key_exists("submit",$_POST)){
                             <label style="color: white" class="col-sm1-2">Name</label>
                             <div class="col-sm1-5">
                                 <input style="font-family:monospace;color: white;" placeholder="full name" type="text" class="form-control1 bg-dark1" id="leaderName" name="member1Name">
+                                <span class="error"><?php echo $mNameErr ?></span>
                             </div>
 
                         </fieldset1>
@@ -135,6 +166,7 @@ if(array_key_exists("submit",$_POST)){
                             <label style="color: white" class="col-sm1-2">USN</label>
                             <div class="col-sm1-5">
                                 <input style="font-family:monospace;color: white; text-transform: uppercase;" placeholder="1SIYYCSXYZ" type="text" class="form-control1  bg-dark1" id="text" name="member1Usn">
+                                <span class="error"><?php echo $mUsnErr ?></span>
                             </div>
 
                         </fieldset1>
@@ -142,6 +174,7 @@ if(array_key_exists("submit",$_POST)){
                             <label style="color: white" class="col-sm1-2">E-mail</label>
                             <div class="col-sm1-5">
                                 <input style="font-family:monospace;color: white;" placeholder="example@email.com" type="email" class="form-control1 bg-dark1" id="email" name="member1Email">
+                                <span class="error"><?php echo $mEmailErr ?></span>
                             </div>
 
                         </fieldset1>
@@ -150,6 +183,7 @@ if(array_key_exists("submit",$_POST)){
                             <div class="col-sm1-5">
 
                                 <input style="font-family:monospace;color: white;"  placeholder="phone number" type="tel" class="form-control1 bg-dark1"   id="phone" name="member1Phone"  maxlength="10" >
+                                <span class="error"><?php echo $mPhoneErr ?></span>
                             </div>
 
                         </fieldset1>

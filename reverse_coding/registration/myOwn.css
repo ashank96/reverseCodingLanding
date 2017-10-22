@@ -1,6 +1,10 @@
 .form-group1 {
     margin-bottom: 1rem;
 }
+.error{
+    color:red;
+}
+}
 .jumbotron1 {
     padding: 2rem 1rem;
     margin-bottom: 1rem;
