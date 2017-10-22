@@ -77,70 +77,67 @@ if(array_key_exists("submit",$_POST)){
 
                     </fieldset1>
                     <fieldset1 class="form-group1 form-row1">
-                        <label style="color: white" class="col-sm1-5" ><h5>Team Members</h5></label>
-                    </fieldset1>
-                    <fieldset1 class="form-group1 form-row1">
-                        <label style="color: white" class="col-sm1-2"><h6>Team Leader</h6></label>
+                        <label style="color: white" class="col-sm1-4"><h5><strong>Team Leader</strong></h5></label>
                     </fieldset1>
                     <fieldset1 class="form-group1 row header-title" style="margin-left: 3%">
 
-                        <fieldset1 class="md-form ">
-                            <i class="fa fa-user prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-user prefix white-text"></i>
                             <input style="font-family:monospace; color:white;"  type="text" class="form-control1 bg-dark1" id="ln" name="leaderName">
-                            <label for="ln">Name</label>
+                            <label for="ln">&emsp;Name</label>
 
 
                         </fieldset1><br>
-                        <fieldset1 class="md-form ">
-                            <i class="fa fa-tag prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-tag prefix white-text"></i>
                             <input style="font-family:monospace;color:white; text-transform: uppercase;" type="text" class="form-control1 bg-dark1" id="lusn" name="leaderUsn">
-                            <label for="lusn">USN</label>
+                            <label for="lusn">&emsp;USN</label>
 
                         </fieldset1><br>
-                        <fieldset1 class="md-form ">
-                            <i class="fa fa-envelope prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-envelope prefix white-text"></i>
                             <input style="font-family:monospace;color: white;" type="email" class="form-control1 bg-dark1" id="lemail" name="leaderEmail">
-                            <label for="lemail">E-mail</label>
+                            <label for="lemail">&emsp;E-mail</label>
 
                         </fieldset1><br>
-                        <fieldset1 class="md-form">
-                            <i class="fa fa-pencil  prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-pencil  prefix white-text"></i>
                             <input style="font-family:monospace;color: white;" type="tel"  class="form-control1  bg-dark1" id="phone" name="leaderPhone"  maxlength="10">
-                            <label for="lemail">Phone</label>
+                            <label for="lemail">&emsp;Phone</label>
 
                         </fieldset1><br><br>
 
                     </fieldset1>
 
                     <fieldset1 class="form-group1 form-row1">
-                        <label style="color: white" class="col-sm1-2"><h6>Team Member 1</h6></label>
+                        <label style="color: white" class="col-sm1-4"><h5><strong>Team Member 1</strong></h5></label>
                     </fieldset1>
                     <fieldset1 class="form-group1 row header-title" style="margin-left: 3%">
 
 
-                        <fieldset1 class="md-form ">
-                            <i class="fa fa-user prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-user prefix white-text"></i>
                             <input style="font-family:monospace;color: white;" type="text" class="form-control1 bg-dark1" id="memname" name="member1Name">
-                            <label for="memname">Name</label>
+                            <label for="memname">&emsp;Name</label>
 
 
                         </fieldset1><br>
-                        <fieldset1 class="md-form ">
-                            <i class="fa fa-tag prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-tag prefix white-text"></i>
                             <input style="font-family:monospace;color: white; text-transform: uppercase;" type="text" class="form-control1  bg-dark1" id="memusn" name="member1Usn">
-                            <label for="memusn">USN</label>
+                            <label for="memusn">&emsp;USN</label>
 
                         </fieldset1><br>
-                        <fieldset1 class="md-form ">
-                            <i class="fa fa-envelope prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-envelope prefix white-text"></i>
                             <input style="font-family:monospace;color: white;" type="email" class="form-control1 bg-dark1" id="mememail" name="member1Email">
-                            <label for="mememail">E-mail</label>
+                            <label for="mememail">&emsp;E-mail</label>
 
                         </fieldset1><br>
-                        <fieldset1 class="md-form">
-                            <i class="fa fa-pencil  prefix grey-text"></i>
+                        <fieldset1 class="md-form col-sm-7">
+                            <i class="fa fa-pencil  prefix white-text"></i>
                             <input style="font-family:monospace;color: white;" type="tel" class="form-control1 bg-dark1"   id="memphone" name="member1Phone"  maxlength="10" >
-                            <label for="memphone">Phone</label>
+                            <label for="memphone">&emsp;Phone</label>
 
                         </fieldset1><br><br>
                     </fieldset1>
