@@ -57,8 +57,11 @@ if(array_key_exists("submit",$_POST)){
 
 <!--/.poster-->
 <!--main content-->
-<div class="text-center">
+<div class=" view overlay hm-white-light">
     <img src="../commonResources/img/cover.jpg" class="shift img-fluid" alt="">
+    <a href="#">
+        <div class="mask waves-effect waves-light"></div>
+    </a>
 </div>
 <div class="main-content">
     <form class="form-group1" method="post" >
