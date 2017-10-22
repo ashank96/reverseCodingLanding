@@ -70,10 +70,6 @@ if(array_key_exists("submit",$_POST)){
                 </div>
                 <div style="margin-left: 15%;margin-right:15%;">
                     <fieldset1 class="form-group1 form-row1">
-                        <input type="text" id="name" class="form-control" required>
-                        <label class="form-control-placeholder" for="name">name</label>
-                    </fieldset1>
-                    <fieldset1 class="form-group1 form-row1">
                         <label style="color: white" class="col-sm1-4"><h4><b>Team Name</b></h4></label>
                         <div class="col-sm1-5">
                             <input placeholder="team name" style="font-family:monospace; font-size: 120%; color:white;" type="text" class="form-control1 bg-dark1" id="teamName" name="teamName" >
@@ -88,34 +84,31 @@ if(array_key_exists("submit",$_POST)){
                     </fieldset1>
                     <fieldset1 class="form-group1 row header-title" style="margin-left: 3%">
 
-                        <fieldset1 class="form-group1 ">
-                            <label style="color: white" class="col-sm1-2">Name</label>
-                            <div class="col-sm1-5">
-                                <input style="font-family:monospace; color:white;" placeholder="full name" type="text" class="form-control1 bg-dark1" id="leaderName" name="leaderName">
-                            </div>
+                        <fieldset1 class="md-form ">
+                            <i class="fa fa-user prefix grey-text"></i>
+                            <input style="font-family:monospace; color:white;"  type="text" class="form-control1 bg-dark1" id="ln" name="leaderName">
+                            <label for="ln">Name</label>
 
-                        </fieldset1>
-                        <fieldset1 class="form-group1 ">
-                            <label style="color: white" class="col-sm1-2">USN</label>
-                            <div class="col-sm1-5">
-                                <input style="font-family:monospace;color:white; text-transform: uppercase;" placeholder="1SIYYCSXYZ" type="text" class="form-control1 bg-dark1" id="text" name="leaderUsn">
-                            </div>
 
-                        </fieldset1>
-                        <fieldset1 class="form-group1 ">
-                            <label style="color: white" class="col-sm1-2">E-mail</label>
-                            <div class="col-sm1-5">
-                                <input style="font-family:monospace;color: white;" placeholder="example@email.com" type="email" class="form-control1 bg-dark1" id="email" name="leaderEmail">
-                            </div>
+                        </fieldset1><br>
+                        <fieldset1 class="md-form ">
+                            <i class="fa fa-tag prefix grey-text"></i>
+                            <input style="font-family:monospace;color:white; text-transform: uppercase;" type="text" class="form-control1 bg-dark1" id="lusn" name="leaderUsn">
+                            <label for="lusn">USN</label>
 
-                        </fieldset1>
-                        <fieldset1 class="form-group1 ">
-                            <label style="color: white" class="col-sm1-2">Phone</label>
-                            <div class="col-sm1-5">
-                                <input style="font-family:monospace;color: white;" placeholder="phone number" type="tel"  class="form-control1  bg-dark1" id="phone" name="leaderPhone"  maxlength="10">
-                            </div>
+                        </fieldset1><br>
+                        <fieldset1 class="md-form ">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input style="font-family:monospace;color: white;" type="email" class="form-control1 bg-dark1" id="lemail" name="leaderEmail">
+                            <label for="lemail">E-mail</label>
 
-                        </fieldset1>
+                        </fieldset1><br>
+                        <fieldset1 class="md-form">
+                            <i class="fa fa-pencil  prefix grey-text"></i>
+                            <input style="font-family:monospace;color: white;" type="tel"  class="form-control1  bg-dark1" id="phone" name="leaderPhone"  maxlength="10">
+                            <label for="lemail">Phone</label>
+
+                        </fieldset1><br><br>
 
                     </fieldset1>
 
@@ -124,36 +117,32 @@ if(array_key_exists("submit",$_POST)){
                     </fieldset1>
                     <fieldset1 class="form-group1 row header-title" style="margin-left: 3%">
 
-                        <fieldset1 class="form-group1">
-                            <label style="color: white" class="col-sm1-2">Name</label>
-                            <div class="col-sm1-5">
-                                <input style="font-family:monospace;color: white;" placeholder="full name" type="text" class="form-control1 bg-dark1" id="leaderName" name="member1Name">
-                            </div>
 
-                        </fieldset1>
-                        <fieldset1 class="form-group1">
-                            <label style="color: white" class="col-sm1-2">USN</label>
-                            <div class="col-sm1-5">
-                                <input style="font-family:monospace;color: white; text-transform: uppercase;" placeholder="1SIYYCSXYZ" type="text" class="form-control1  bg-dark1" id="text" name="member1Usn">
-                            </div>
+                        <fieldset1 class="md-form ">
+                            <i class="fa fa-user prefix grey-text"></i>
+                            <input style="font-family:monospace;color: white;" type="text" class="form-control1 bg-dark1" id="memname" name="member1Name">
+                            <label for="memname">Name</label>
 
-                        </fieldset1>
-                        <fieldset1 class="form-group1">
-                            <label style="color: white" class="col-sm1-2">E-mail</label>
-                            <div class="col-sm1-5">
-                                <input style="font-family:monospace;color: white;" placeholder="example@email.com" type="email" class="form-control1 bg-dark1" id="email" name="member1Email">
-                            </div>
 
-                        </fieldset1>
-                        <fieldset1 class="form-group1">
-                            <label style="color: white" class="col-sm1-2">Phone</label>
-                            <div class="col-sm1-5">
+                        </fieldset1><br>
+                        <fieldset1 class="md-form ">
+                            <i class="fa fa-tag prefix grey-text"></i>
+                            <input style="font-family:monospace;color: white; text-transform: uppercase;" type="text" class="form-control1  bg-dark1" id="memusn" name="member1Usn">
+                            <label for="memusn">USN</label>
 
-                                <input style="font-family:monospace;color: white;"  placeholder="phone number" type="tel" class="form-control1 bg-dark1"   id="phone" name="member1Phone"  maxlength="10" >
-                            </div>
+                        </fieldset1><br>
+                        <fieldset1 class="md-form ">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input style="font-family:monospace;color: white;" type="email" class="form-control1 bg-dark1" id="mememail" name="member1Email">
+                            <label for="mememail">E-mail</label>
 
-                        </fieldset1>
+                        </fieldset1><br>
+                        <fieldset1 class="md-form">
+                            <i class="fa fa-pencil  prefix grey-text"></i>
+                            <input style="font-family:monospace;color: white;" type="tel" class="form-control1 bg-dark1"   id="memphone" name="member1Phone"  maxlength="10" >
+                            <label for="memphone">Phone</label>
 
+                        </fieldset1><br><br>
                     </fieldset1>
                     <fieldset1 class="form-group1">
                         <input style="float: right;margin-right: 20px;" type="submit" value="Register" name="submit" class="btn1  btn1-outline1-success1 font-weight-bold">
